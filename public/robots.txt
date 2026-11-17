@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Independent concept demo built by Alira Digital
+Sitemap: https://riteshparmar15.github.io/Shannons-Cleaning-Service-Calgary-demo/sitemap.xml

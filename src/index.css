@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --color-forest: #174D3B;
+  --color-forest-dark: #113B2D;
+  --color-fresh: #55A879;
+  --color-fresh-dark: #428E63;
+  --color-mint: #EAF5EE;
+  --color-mint-subtle: #F2F9F4;
+  --color-offwhite: #F8FAF7;
+  --color-charcoal: #25332D;
+  --color-charcoal-muted: #52635B;
+  --color-border-light: #E9EFEB;
+
+  --font-display: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    color: var(--color-charcoal);
+    background-color: #ffffff;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  button, a, input, select, textarea {
+    outline-color: var(--color-forest);
+  }
+}
+
+/* Restrained, smooth scroll-reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Subtle architectural card elevation */
+.card-elevated {
+  box-shadow: 0 1px 2px rgba(23, 77, 59, 0.04), 0 8px 24px -12px rgba(23, 77, 59, 0.08);
+}
+
+.card-elevated-hover {
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.28s ease;
+}
+
+.card-elevated-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(23, 77, 59, 0.05), 0 18px 34px -14px rgba(23, 77, 59, 0.14);
+  border-color: #cfe3d7;
+}
+
